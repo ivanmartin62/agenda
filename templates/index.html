@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservar Turno - Nutricionista</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Reservar Turno con la Nutricionista</h1>
+    {{if .Confirmacion}}
+        <p>¡Gracias, {{.Nombre}}! Tu turno para el {{.Fecha}} a las {{.Hora}} ha sido reservado.</p>
+    {{else}}
+        <form action="/reservar" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br><br>
+
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required><br><br>
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required><br><br>
+
+            <input type="submit" value="Reservar Turno">
+        </form>
+    {{end}}
+</body>
+</html>
